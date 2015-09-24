@@ -1,23 +1,25 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.TreeSet;
+
 /**
  * @author lucas
  */
 public class Testes {
 
     public static void main(String[] args) {
-        Conta c = new Conta();
-        ContaCorrente cc = new ContaCorrente();
-        ContaPoupanca cp = new ContaPoupanca();
+        Programa p1 = new Programa();
+        p1.setId(1);
 
-        c.deposita(1000);
-        cc.deposita(1000);
-        cp.deposita(1000);
+        Thread t1 = new Thread(p1);
+        t1.start();
 
-        c.atualiza(0.01);
-        cc.atualiza(0.01);
-        cp.atualiza(0.01);
+        Programa p2 = new Programa();
+        p2.setId(2);
 
-        System.out.println(c.getSaldo());
-        System.out.println(cc.getSaldo());
-        System.out.println(cp.getSaldo());
+        Thread t2 = new Thread(p2);
+        t2.start();
     }
 }
